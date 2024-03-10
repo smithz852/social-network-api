@@ -39,6 +39,12 @@ const thoughtSchema = new Schema(
       type: String,
       required: true,
     },
+    user: [
+      {
+        type: Schema.Types.ObjectId, 
+         ref: 'user',
+      },
+    ],
     reactions: [reactionSchema],
   },
   {
@@ -52,5 +58,6 @@ const thoughtSchema = new Schema(
 
 
 const Thought = model('thought', thoughtSchema);
+const Reaction = model('reaction', reactionSchema)
 
-module.exports = Thought;
+module.exports = { Thought, Reaction };

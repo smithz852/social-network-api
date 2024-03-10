@@ -1,15 +1,15 @@
 const router = require('express').Router();
 const {
-  // // EXAMPLES - put in variables from conroller for COMMENTS below
-  // getUsers,
-  // getSingleUser,
-  // createUser,
+  getAllThoughts,
+  getOneThought,
+  postThought,
+  putThought,
+  deleteThought
 } = require('../../controllers/commentController');
 
-// update routes for comments
 
-// router.route('/').get(getUsers).post(createUser);
+router.route('/').get(getAllThoughts).post(postThought);
 
-// router.route('/:userId').get(getSingleUser);
+router.route('/:id').get(getOneThought).put(putThought).delete(deleteThought);
 
 module.exports = router;
