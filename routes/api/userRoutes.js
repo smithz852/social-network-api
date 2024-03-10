@@ -1,15 +1,16 @@
 const router = require('express').Router();
 const {
-  // EXAMPLES - put in variables from conroller for USERS below
-  // getUsers,
-  // getSingleUser,
-  // createUser,
+  getAllUsers,
+  getOneUser,
+  postUser,
+  putUser,
+  deleteUser,
 } = require('../../controllers/userController');
 
-// update routes for users below
 
-// router.route('/').get(getUsers).post(createUser);
+router.route('/').get(getAllUsers).post(postUser);
 
-// router.route('/:userId').get(getSingleUser);
+router.route('/:id').get(getOneUser).put(putUser).delete(deleteUser);
+
 
 module.exports = router;
