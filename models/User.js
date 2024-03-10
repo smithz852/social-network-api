@@ -19,10 +19,10 @@ const userSchema = new Schema(
         message: emailEntered => `${emailEntered.value} is not a valid email!`
       }
     },
-    comments: [
+    thoughts: [
       {
         type: Schema.Types.ObjectId, 
-         ref: 'comment',
+         ref: 'thought',
       },
     ],
     friends: [
