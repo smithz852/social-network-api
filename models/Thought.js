@@ -1,4 +1,3 @@
-
 const { Schema, model } = require('mongoose');
 
 const reactionSchema = new Schema({
@@ -20,7 +19,7 @@ const reactionSchema = new Schema({
     default: Date.now,
     // getter method to format timestamp
   }
-}, {_id: false})
+}, {_id: false});
 
 const thoughtSchema = new Schema(
   {
@@ -57,7 +56,7 @@ const thoughtSchema = new Schema(
 
 
 
-const Thought = model('thought', thoughtSchema);
-const Reaction = model('reaction', reactionSchema)
+const Thought = model('Thought', thoughtSchema);
+// const Reaction = model('reaction', reactionSchema)
 
-module.exports = { Thought, Reaction };
+module.exports = Thought;
