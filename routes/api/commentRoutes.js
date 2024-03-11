@@ -12,4 +12,5 @@ router.route('/').get(getAllThoughts).post(postThought);
 
 router.route('/:id').get(getOneThought).put(putThought).delete(deleteThought);
 
+
 module.exports = router;
