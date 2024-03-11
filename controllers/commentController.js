@@ -7,7 +7,6 @@ module.exports = {
     try {
       const comment = await Thought.find()
       .select('-__v')
-        .populate('Thought');
       res.json(comment);
     } catch (err) {
       console.log(err)
@@ -36,6 +35,7 @@ module.exports = {
     try {
       const commentData = await Thought.create(req.body)
       res.json(commentData);
+      
     } catch (err) {
 
      if (err instanceof mongoose.Error.ValidationError) {
