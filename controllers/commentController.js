@@ -1,5 +1,5 @@
 const { default: mongoose } = require('mongoose');
-const { Thought, Reaction, User } = require('../models');
+const { Thought } = require('../models');
 
 module.exports = {
 
@@ -7,7 +7,7 @@ module.exports = {
     try {
       const comment = await Thought.find()
       .select('-__v')
-        .populate('reaction');
+        .populate('Thought');
       res.json(comment);
     } catch (err) {
       console.log(err)
@@ -34,7 +34,7 @@ module.exports = {
 
   async postThought(req, res) {
     try {
-      const commentData = await Thought.create({ thoughtText: req.params.thoughtText });
+      const commentData = await Thought.create(req.body)
       res.json(commentData);
     } catch (err) {
 
