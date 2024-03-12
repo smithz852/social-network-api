@@ -18,13 +18,13 @@ module.exports = {
     try {
       const comment = await Thought.findOne({ _id: req.params.id })
         .select('-__v')
-        .populate('reaction');
+        // .populate('reaction');
 
       if (!comment) {
         return res.status(404).json({ message: 'No comment with that ID' });
       }
 
-      res.json(user);
+      res.json(comment);
     } catch (err) {
       console.log(err)
       res.status(500).json(err);
