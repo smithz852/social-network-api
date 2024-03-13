@@ -4,7 +4,9 @@ const {
   getOneThought,
   postThought,
   putThought,
-  deleteThought
+  deleteThought,
+  postReaction,
+  removeReaction,
 } = require('../../controllers/commentController');
 
 
@@ -12,5 +14,8 @@ router.route('/').get(getAllThoughts).post(postThought);
 
 router.route('/:id').get(getOneThought).put(putThought).delete(deleteThought);
 
+router.route('/:id/reactions').post(postReaction)
+
+router.route('/:id/reactions/:id').delete(removeReaction)
 
 module.exports = router;
