@@ -1,5 +1,5 @@
 const { default: mongoose } = require('mongoose');
-const { Thought } = require('../models');
+const { Thought, Reaction } = require('../models');
 
 module.exports = {
 
@@ -74,5 +74,34 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+
+  async postReaction(req, res) {
+    try {
+      const student = await Thought.findOneAndUpdate(
+        { _id: req.params.id },
+        { $addToSet: { reactions: req.body } },
+        { new: true }        
+      );
+      
+    } catch (err) {
+
+     if (err instanceof mongoose.Error.ValidationError) {
+      res.status(400).json(err)
+      return
+     } 
+      console.log(err)
+      res.status(500).json(err);
+    }
+  },
   
+ async removeReaction(req, res) {
+  try {
+    const reactionData = await Reaction.deleteOne({ reactionId: req.params.reactionId });
+    res.json(reactionData);
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+ }
+
 };

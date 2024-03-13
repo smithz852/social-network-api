@@ -8,8 +8,6 @@ module.exports = {
     try {
       const users = await User.find()
       .select('-__v')
-        .populate('thoughts')
-        .populate('friends');
       res.json(users);
     } catch (err) {
       console.log(err)
@@ -21,8 +19,8 @@ module.exports = {
     try {
       const user = await User.findOne({ _id: req.params.id })
         .select('-__v')
-        .populate('thoughts')
-        .populate('friends');
+        .populate('thoughts', 'friends')
+        // .execPopulate();
 
       if (!user) {
         return res.status(404).json({ message: 'No user with that ID' });
