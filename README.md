@@ -14,7 +14,7 @@
 
 GitHub Link: https://github.com/smithz852/social-network-api.git
 
-Video Tutorial Link:
+Video Tutorial Link: https://drive.google.com/file/d/1BbtlLMXw1_gnrEqMYCsgE-gWILhSA7yl/view
 
 An API for setting up routes similar to ones used in social network apps so that users can create profiles, comment on posts, and add friends.
 
