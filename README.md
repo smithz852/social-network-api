@@ -12,7 +12,7 @@
 
 ## Description
 
-GitHub Link: 
+GitHub Link: https://github.com/smithz852/social-network-api.git
 
 Video Tutorial Link:
 
