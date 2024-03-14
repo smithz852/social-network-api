@@ -75,5 +75,38 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+
+  async postFriend(req, res) {
+    try {
+      const friendData = await User.findOneAndUpdate(
+        { _id: req.params.id },
+        { $addToSet: { friends: req.body }, },
+        { new: true }        
+      );
+      res.json(friendData)
+    } catch (err) {
+
+     if (err instanceof mongoose.Error.ValidationError) {
+      res.status(400).json(err)
+      return
+     } 
+      console.log(err)
+      res.status(500).json(err);
+    }
+  },
+  
+ async removeFriend(req, res) {
+  try {
+    const friendData = await User.findOneAndUpdate(
+      { _id: req.params.id },
+      { $pull: { friends: req.params.friendId }, },
+      { new: true }        
+    );      
+    res.json(friendData);
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+ }
   
 };
