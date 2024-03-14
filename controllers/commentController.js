@@ -77,12 +77,12 @@ module.exports = {
 
   async postReaction(req, res) {
     try {
-      const student = await Thought.findOneAndUpdate(
+      const reactionData = await Thought.findOneAndUpdate(
         { _id: req.params.id },
         { $addToSet: { reactions: req.body } },
         { new: true }        
       );
-      
+      res.json(reactionData)
     } catch (err) {
 
      if (err instanceof mongoose.Error.ValidationError) {
